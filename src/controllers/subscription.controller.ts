@@ -6,7 +6,6 @@ import { BaseController } from '../common/controllers/base.controller'
 
 @route('/api/v1/subscriptions')
 export class SubscriptionController extends BaseController {
-
   constructor(private readonly subscriptionService: SubscriptionService) {
     super()
   }
@@ -28,10 +27,10 @@ export class SubscriptionController extends BaseController {
       const id = parseInt(req.params.id)
       const subscription = await this.subscriptionService.find(id)
 
-      if(subscription){
+      if (subscription) {
         res.status(200).send(subscription)
-      }else {
-        res.status(404).send({message: 'Subscription not found'})
+      } else {
+        res.status(404).send({ message: 'Subscription not found' })
       }
 
     } catch (error) {
